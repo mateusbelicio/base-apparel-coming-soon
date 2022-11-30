@@ -1,0 +1,96 @@
+.coming-soon {
+  display: grid;
+  align-items: center;
+  grid-template-areas:
+    'logo'
+    'img'
+    'content';
+
+  @include breakpoint(700) {
+    grid-template-areas:
+      '. logo     . img'
+      '. content  . img';
+    grid-template-columns: 1fr 3fr 1fr auto;
+
+    background-image: url(../images/bg-pattern-desktop.svg);
+    background-repeat: repeat-x;
+    background-position: left center;
+    background-size: 100vmin;
+  }
+
+  & > :not(.coming-soon__hero) {
+    padding: 2rem;
+  }
+
+  &__logo {
+    height: 5.3125rem;
+    grid-area: logo;
+    align-self: center;
+
+    @include breakpoint(700) {
+      height: auto;
+    }
+  }
+
+  &__hero {
+    width: 100%;
+    max-height: 15.625rem;
+    grid-area: img;
+
+    @include breakpoint(700) {
+      max-height: none;
+      height: 100%;
+    }
+  }
+
+  &__hero-img {
+    width: 100%;
+    max-height: 15.625rem;
+    object-fit: cover;
+    object-position: top;
+
+    @include breakpoint(700) {
+      width: auto;
+      max-height: none;
+      height: 100%;
+    }
+  }
+
+  &__content {
+    @include flex(column, center, center, 1rem);
+    align-self: start;
+    grid-area: content;
+    max-width: 34.3rem;
+    text-align: center;
+    justify-self: center;
+
+    @include breakpoint(700) {
+      text-align: left;
+      align-items: start;
+      justify-self: start;
+    }
+  }
+
+  &__title {
+    @include breakpoint(700) {
+      font-size: $fs-900;
+    }
+
+    span {
+      font-weight: $fw-300;
+      color: $clr-primary-400;
+    }
+  }
+
+  &__description {
+    @include breakpoint(700) {
+      font-size: $fs-400;
+      line-height: 1.7;
+      max-width: 45ch;
+    }
+  }
+
+  &__form {
+    margin-top: 1rem;
+  }
+}

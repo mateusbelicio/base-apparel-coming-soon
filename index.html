@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Challenge by Frontend Mentor. Coded by Mateus Belício." />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+
+    <title>Frontend Mentor | Base Apparel coming soon page</title>
+
+    <link rel="stylesheet" href="./style/index.css" />
+    <script defer src="./script.js"></script>
+  </head>
+  <body>
+    <main>
+      <section class="coming-soon | container">
+        <img class="coming-soon__logo" src="./images/logo.svg" alt="Base Apparel logo" />
+
+        <picture class="coming-soon__hero">
+          <source media="(min-width: 43.75em)" srcset="./images/hero-desktop.jpg" />
+          <img
+            src="./images/hero-mobile.jpg"
+            alt="Photo of beautiful woman with brown hair and orange shirt"
+            class="coming-soon__hero-img"
+          />
+        </picture>
+
+        <div class="coming-soon__content">
+          <h1 class="coming-soon__title"><span>We're</span> coming soon</h1>
+          <p class="coming-soon__description">
+            Hello fellow shoppers! We're currently building our new fashion store. Add your email
+            below to stay up-to-date with announcements and our launch deals.
+          </p>
+
+          <form data-status="valid" class="coming-soon__form form" action="submit" method="post">
+            <input
+              class="form__input"
+              type="text"
+              name="email-field"
+              id="email"
+              placeholder="Email Address"
+            />
+            <button class="form__button" type="submit">Submit</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

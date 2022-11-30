@@ -1,0 +1,56 @@
+.overlay {
+  background: linear-gradient(to bottom, hsla(0, 0%, 5%, 0.5), hsla(0, 0%, 5%, 0.15));
+  inset: 0;
+  position: fixed;
+  z-index: 100;
+}
+
+.modal {
+  @include flex(column, center, center, 1.5rem);
+  animation: fadeIn 1s 0.5s ease-out forwards;
+  background-image: radial-gradient(
+    circle at top,
+    hsla(0, 93%, 68%, 0.25),
+    hsla(0, 93%, 68%, 0.15)
+  );
+  background-color: $clr-neutral-100;
+  border-radius: 0.625rem;
+  box-shadow: 0 1rem 1rem hsla(0, 0%, 13%, 0.15);
+  font-size: 1.5rem;
+  left: 50%;
+  margin: auto;
+  opacity: 0;
+  padding: 1.5rem 2.5rem;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: max-content;
+  z-index: 200;
+
+  &__message {
+    font-weight: $fw-400;
+    color: $clr-neutral-400;
+  }
+
+  &__close {
+    background: $gradient-primary;
+    border-radius: 2rem;
+    border: none;
+    box-shadow: 0 1rem 1rem hsla(0, 0%, 13%, 0.15);
+    color: $clr-neutral-100;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+
+    &:hover,
+    &:focus {
+      filter: brightness(110%);
+      outline: none;
+    }
+
+    &:active {
+      box-shadow: 0 0.5rem 1rem hsla(0, 0%, 13%, 0.25);
+      scale: 0.95;
+    }
+  }
+}

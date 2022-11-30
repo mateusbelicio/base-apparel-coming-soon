@@ -1,0 +1,79 @@
+.form {
+  @include flex(row, center, center);
+  position: relative;
+  width: 100%;
+
+  &[data-status='invalid']::before {
+    color: $clr-accent-400;
+    content: 'Please provide a valid email';
+    font-size: $fs-100;
+    font-weight: $fw-600;
+    left: 1.5rem;
+    bottom: -1.5rem;
+    position: absolute;
+
+    @include breakpoint(700) {
+      font-size: $fs-200;
+    }
+  }
+
+  &__input {
+    background-color: transparent;
+    border-radius: 2rem;
+    border: 1px solid hsla(0, 36%, 70%, 0.4);
+    color: $clr-neutral-400;
+    padding: 0.8rem 1.5rem;
+    width: 100%;
+
+    &::placeholder {
+      color: $clr-primary-400;
+      font-size: $fs-300;
+    }
+
+    &:focus {
+      outline: 1px solid $clr-primary-400;
+    }
+
+    .form[data-status='invalid'] > & {
+      outline: 1px solid $clr-accent-400;
+    }
+  }
+
+  &__button {
+    background-image: url('../images/icon-arrow.svg'), $gradient-primary;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 2rem;
+    border: none;
+    box-shadow: 0 1rem 1rem hsla(0, 0%, 13%, 0.15);
+    color: transparent;
+    cursor: pointer;
+    height: calc(100% + 2px);
+    position: absolute;
+    right: 0;
+    width: 4.5rem;
+    transition: all 0.2s linear;
+
+    @include breakpoint(950) {
+      width: 6.25rem;
+    }
+
+    &:hover,
+    &:focus {
+      filter: brightness(120%);
+      outline: none;
+    }
+
+    &:active {
+      box-shadow: 0 0.5rem 1rem hsla(0, 0%, 13%, 0.25);
+      scale: 0.99;
+    }
+
+    .form[data-status='invalid'] > &::before {
+      content: url('../images/icon-error.svg');
+      position: absolute;
+      left: 0;
+      transform: translateX(-120%) scale(0.8);
+    }
+  }
+}
