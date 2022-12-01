@@ -33,14 +33,21 @@
             below to stay up-to-date with announcements and our launch deals.
           </p>
 
-          <form data-status="valid" class="coming-soon__form form" action="submit" method="post">
+          <form data-status="valid" class="coming-soon__form form | js-form" novalidate>
             <input
-              class="form__input"
-              type="text"
-              name="email-field"
-              id="email"
+              type="email"
+              name="email"
+              class="form__input | js-input"
+              aria-describedby="email-alert"
               placeholder="Email Address"
+              data-id="email"
             />
+            <p
+              id="email-alert"
+              class="form__alert | js-alert"
+              aria-live="polite"
+              data-id="email"
+            ></p>
             <button class="form__button" type="submit">Submit</button>
           </form>
         </div>

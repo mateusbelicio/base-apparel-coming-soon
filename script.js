@@ -1,7 +1,8 @@
 'use strict';
 
-const form = document.querySelector('.form');
-const input = document.querySelector('.form__input');
+const form = document.querySelector('.js-form');
+const input = document.querySelector('.js-input');
+const alert = document.querySelector('.js-alert');
 let msg, overlay, close;
 
 // Functions
@@ -30,6 +31,8 @@ const closeMessage = function () {
   document.querySelector('main').removeChild(msg);
   document.querySelector('main').removeChild(overlay);
   input.value = '';
+  form.firstElementChild.removeAttribute('disabled');
+  form.lastElementChild.removeAttribute('disabled');
 
   window.removeEventListener('keydown', handleKeypress);
 };
@@ -48,8 +51,16 @@ form.addEventListener('submit', (event) => {
   if (form.dataset.status === 'valid') {
     showMessage();
 
+    alert.textContent = '';
+
+    form.firstElementChild.setAttribute('disabled', true);
+    form.lastElementChild.setAttribute('disabled', true);
+    close.focus();
+
     close.addEventListener('click', closeMessage);
     overlay.addEventListener('click', closeMessage);
     window.addEventListener('keydown', handleKeypress);
+  } else {
+    alert.textContent = 'Please provide a valid email';
   }
 });
